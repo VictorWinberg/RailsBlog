@@ -15,5 +15,21 @@
   <%= @article.user_id %>
 </p>
 
+<% if @article.comments.empty? %>
+  <h4>There are no comments</h4>
+<% else %>
+  <h4>Comments</h4>
+  <% @article.comments.each do |comment| %>
+    <p>
+      <strong>Commenter:</strong>
+      <%= comment.commenter %>
+    </p>
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
