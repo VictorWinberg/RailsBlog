@@ -1,3 +1,8 @@
 <% provide(:page_title, "Welcome")%>
 <h1>Home</h1>
 <p>Welcome to our home page</p>
+<p><%= get_season() %></p>
+<% numbers = Array.new(10) { rand(1...100) }.sort %>
+<% 10.times do |i|%>
+  <p><strong>§<%= numbers[i] %>.</strong> <%= get_random_welcome() %></p>
+<% end %>
