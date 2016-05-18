@@ -8,7 +8,31 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="wrapper">
 
+  <header>
+    <%= link_to image_tag("v_64x64.png", alt: "V"),
+                {:controller => 'pages', :action => 'home'},
+                {:class => 'logo'} %>
+    <%= link_to 'RailsBlog',
+                {:controller => 'pages', :action => 'home'},
+                {:class => 'title'} %>
+  </header>
+
+  <nav id="horizontalNavigation">
+    <p>
+      <%= link_to 'Home', {:controller => 'pages', :action => 'home'} %>
+      <%= link_to 'Articles', {:controller => 'articles', :action => 'index'} %>
+      <%= link_to 'Users', {:controller => 'users', :action => 'index'} %>
+      <%= link_to 'About', {:controller => 'pages', :action => 'about'} %>
+      <%= link_to 'Directions', {:controller => 'pages', :action => 'directions'} %>
+    </p>
+  </nav>
+
+  <main id="content">
+    <%= yield %>
+  </main>
+
+</div> <!-- END OF WRAPPER -->
 </body>
 </html>
